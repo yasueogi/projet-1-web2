@@ -1,18 +1,663 @@
 :root {
     /* couleur */
-    --color-background: #00FFEA;
-    --color-text: #000000;
-    --color-secondaire: #ffffff;
-
+    --color-background: #ffffff;
+    --color-text-primary: #000000;
+    --color-text-secondary: #15133C;
+    --color-text-tertiary: #1A2E1A;
+    --color-primary: #15133C;
+    --color-secondaire: #F1EEE9;
+    --color-accent: #EC994B;
+    --color-bg-light: #F1EEE9;
+    --color-bg-dark: #73777B;
     /* font size */
-    --font-size-s: 8px;
-    --font-size-m: 16px;
+    --font-size-s: 16px;
+    --font-size-m: 20px;
     --font-size-lg: 24px;
+    --font-size-xl: 42px;
 
-    /* border radius */
-    --border-card: 12px:
-    --border-image; 12px:
-    --border-card: 12px:
+    /* border */
+    --border-sm: 4px;
+    --border-md: 8px;
+    --border-lg: 12px;
 
+    /* padding */
+    --padding-sm: 8px;
+    --padding-md: 12px;
+    --padding-lg: 16px;
+
+    /* margin */
+    --margin-sm: 8px;
+    --margin-md: 12px;
+    --margin-lg: 16px;
+}
     
+
+/* general */
+
+
+body {
+    color: var(--color-text-secondary);
+    background-color: var(--color-background);
+    font-size: var(--font-size-m);
+    margin: 0;
+}
+    
+
+/* header
+une nav barre avec le logo et un bouton qui sont dans une div qui est en display flex en direction row
+*/
+
+
+header {
+    background-color: var(--color-primary);
+    padding: var(--padding-md);
+    min-width: 100;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 300;
+    font-size: var(--font-size-s);
+    display: inline-flex;
+    margin: 0 8px;
+    color: var(--color-secondaire);
+    text-decoration: none;
+    justify-content: space-evenly;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-left: var(--margin-lg);
+}
+button.btn {
+    font-family: 'Montagu Slab', serif;
+    background-color: var(--color-accent);
+    color: var(--color-text-tertiary);
+    border: none;
+    padding: 10px 45px;
+    border-radius: var(--border-sm);
+    cursor: pointer;
+    font-size: var(--font-size-s);
+}
+button.btn:hover {
+    background-color: var(--color-bg-dark);
+}
+    
+
+/* hero 
+une img en background avec du texte et des boutons par dessus, le tout dans une div en display flex en direction row-reverse pour que la div avec le texte et les boutons soit à gauche et l'image à droite. l'img a une grandeur max et est responsive avec flex. avec une marge au top pour decendre le logo (elle est aussie présente sur la div qui contien les texte et boutons.
+*/
+
+
+.hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+    background-image: url("photo/image-hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 45%;
+    max-width: 45%;
+}
+.logo_hero {
+    flex: 1 1 45%;
+    max-width: 50%;
+    height: auto;
+    margin-top: 150px;
+}
+h1 {
+    margin: 0;
+    font-family: 'Montagu Slab', serif;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-secondaire);
+    font-size: 60px;
+}
+.h1_haut {
+    margin-top: 150px;
+}
+.h1_bas {
+    margin-bottom: 20px;
+}
+.description_hero {
+    color: var(--color-secondaire);
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+.p_hero-bas {
+    margin-bottom: 20px;
+}
+.hero_btn {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+#btn_ghost {
+    font-family: 'Montagu Slab', serif;
+    background-color: transparent;
+    color: var(--color-secondaire);
+    border: 1px solid var(--color-secondaire);
+    padding: 10px 50px;
+    border-radius: var(--border-sm);
+    cursor: pointer;
+    font-size: var(--font-size-s);
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+#btn_ghost:hover {
+    background-color: var(--color-secondaire);
+    color: var(--color-primary);
+}  
+#btn_orange {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+    background-color: var(--color-accent);
+    color: var(--color-text-secondary);
+    border: none;
+    padding: 10px 50px;
+    border-radius: var(--border-sm);
+    cursor: pointer;
+    font-size: var(--font-size-s);
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+#btn_orange:hover {
+    background-color: var(--color-bg-dark);
+}
+        
+
+/* a propos
+une div en display flex en direction column, avec un titre, un sous-titre et des cartes. les cartes sont en display flex en direction row pour que le carrer soit à gauche et le texte à droite.
+*/
+
+
+.a_propos {
+    padding: 5vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2 {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 700;
+    font-size: var(--font-size-xl);
+    margin-bottom: 2vw;
+    color: var(--color-accent);
+}
+.sous_titre_noir {
+    color: var(--color-text-secondary);
+}
+.rg_cartes {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;          
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 90%;     
+    margin: 4vw auto;
+}
+.card {
+    display: flex;
+    border: 1px solid #00000023;
+    border-radius: 0.5vw;
+    padding: 2vw;
+    flex: 1 1 40%; 
+}
+.carrer-card_petite {
+    width: 100px;              
+    height: 100px;
+    aspect-ratio: 1 / 1;     
+    flex-shrink: 0;          
+    margin-right: 15px;      
+    background-color: #D4D4E3;   
+}
+.div_text-card_petite {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.5vw; 
+}
+.text_card {
+    color: var(--color-text-secondary);
+    font-family: 'Montagu Slab', serif;
+    font-weight: 400;
+    font-size: var(--font-size-s);
+    margin: 0;
+    margin-bottom: 12px;
+}
+.sous_titre {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-m);
+    margin: 0;
+}
+.equipe-card {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.avatar {
+    width: 25px;  
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    margin: 0;
+}
+    
+
+/* nos services 
+meme chose que la section a propos mais avec des cartes plus grandes et en display flex en direction column pour que le carre soit au dessus du texte. la div de la section est en display flex en direction row pour que les cartes soient côte à côte et le sous titre est renplacer par un bouton.
+*/
+
+
+.service {
+    padding: 80px 5vw 60px;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+#btn_service {
+    padding: 12px 32px;
+    background-color: var(--color-accent);
+    color: var(--color-text-secondary);
+    border: none;
+    border-radius: var(--border-sm);
+    font-size: var(--font-size-s);
+    margin: 30px 0 50px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-family: 'Montagu Slab', serif;
+}
+#btn_service:hover {
+    background-color: var(--color-bg-dark);
+}
+.rg_cartes_nos_services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.card_lg {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    border: 1px solid #00000023;
+    border-radius: var(--border-sm);
+    flex: 1 1 300px;
+    min-width: 0;
+}
+.carrer-card_lg {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background-color: #D4D4E3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.div_text_card_lg {
+    padding: 24px;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card_lg h3 {
+    margin: 0 0 12px 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    font-family: 'Montagu Slab', serif;
+    font-weight: 700;
+}
+.card_lg p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-family: 'Montagu Slab', serif;
+    font-weight: 400;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+p.text_card {
+    color: var(--color-text-secondary);
+}
+    
+
+/* horraire 
+ses un div en display flex en direction column avec un titre et des cartes. les cartes sont en display flex pour les aligner en 2 lignes de 3 elements. les cartes sont en display flex en direction column pour que le carre et l'image d'horloge soit au dessus du texte.
+*/
+
+
+.div_horraire {
+    padding: 20px 5vw 60px;
+    text-align: center;
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    display: flex;
+    flex-direction: column;
+}
+.horraire_cartes {
+    display: flex;  
+    flex-wrap: wrap;           
+    justify-content: center;   
+    gap: 50px;                
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+.carte_horraire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    flex: 0 1 calc(33.33% - 50px);
+}
+.img_card_hor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #D4D4E3;
+    border-radius: 50px;
+}
+.temps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;
+    text-align: center;       
+    gap: 8px;                 
+}
+    
+
+/* témoignages 
+une div en display flex en direction row avec un titre et des cartes. Une div en display flex en direction row pour que les cartes soit une a côter de l'autre et chaque cartes est un div en display flex en direction column pour que le texte soit en dessous de l'icon et du nom de la personne. l'icon et les nom des personnes sont dans une div qui est en display flex en direction row pour les avoirs un a coter de l'autre.
+*/
+
+
+.Témoignages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 5vw 70px;
+    background-color: var(--color-bg-light);
+}
+.rg_carte-mini {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.carte_mini {
+    display: flex;
+    flex-direction: column;
+    background-color: #D4D4E3;
+    border-radius: var(--border-md);
+    padding: 20px;
+    
+    flex: 1 1 300px;       
+    min-width: 100px;
+    max-width: 230px;
+}
+.nom_personne {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.fond_icon_review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-background);
+    border-radius: 50%;
+}
+h4 {
+    color: var(--color-text-secondary);
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+}
+.text_review {
+    font-size: var(--font-size-m);
+}
+    
+
+/* rencontrer notre equipe
+une div en display flex en direction row qui contient une div le logo, le titre et un sous titre qui est placer en row pour faire en sorte quil soit sur la meme ligne. Apres la div il y a un bouton qui a un padding et une couleur de font bleux avec le lien blanc.
+*/
+
+
+.rencontre-equipe {
+    display: flex;
+    align-items: center;
+    padding: 80px 5vw 70px;
+    background-color: var(--color-background);
+    justify-content: space-between;
+}
+.renconter-equipe_card {
+    display: flex;
+    gap: 40px;
+}
+.icon_rencontre-equipe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #d9d9d973;
+    border-radius: 50%;
+}
+.rencontre-equipe_btn {
+    padding: 0;
+    border: none;
+    background: none;
+}
+.lien-button {
+    padding: 10px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-secondaire);
+    border: none;
+    border-radius: var(--border-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+    
+
+/* Tarification 
+une div en display flex en direction column avec un titre, sous titre et des cartes. les cartes sont dans une div qui est en display flex pour les aligner en row et chaque carte est une div en display flex en direction row pour que le carre soit à gauche et le texte à droite. Le texte est aussie dans sa propre div qui est en display flex en direction column pour que le titre et le texte soit l'un au dessus de l'autre.
+*/
+
+
+.Tarification {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 5vw 40px;
+    background-color: var(--color-bg-light);
+    min-height: 400px;
+}
+.rg_cartes-tarif {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.titre-tarif {
+    text-align: center;
+}
+.card-tarif {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: var(--color-background);
+    border-radius: var(--border-sm);
+    border: 1px solid #00000023;
+    flex: 0 0 275px;
+}
+.carrer_card_tarif {
+    width: 100px;              
+    height: 100px;
+    aspect-ratio: 1 / 1;     
+    flex-shrink: 0;          
+    margin-right: 15px;      
+    background-color: #D4D4E3;   
+}
+.sous_titre-tarif {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-m);
+    margin: 0;
+}
+.text_card-tarif {
+    font-size: var(--font-size-s);
+}
+    
+
+/* contactez nous
+une div en display flex en direction column avec un titre et un formulaire et un boutton. le formulaire est en display flex en direction row pour que les champs de saisie et les labels soit côte à côte et chaque champ de saisie et label est dans une div qui est en display flex en direction column pour que le label soit au dessus du champ de saisie. le bouton est en dessous du formulaire et centré. les champs de saisie ont une bordure et un padding.
+*/
+
+
+.contactez_nous {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 5vw 70px;
+    background-color: var(--color-background);
+    justify-content: space-between;
+    gap: 2vh;
+}
+form {
+    display: flex;
+    justify-content: space-between;
+    gap: 20vw;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+label {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-s);
+}
+input {
+    padding: 6px 12px;
+    border: 1px solid #00000023;
+    border-radius: var(--border-sm);
+    font-size: var(--font-size-s);
+    width: 100%;
+    max-width: 400px;
+}
+.contact {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    padding: 8px 80px;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: none;
+    border-radius: var(--border-md);
+    cursor: pointer;
+}
+.contact:hover {
+    background-color: var(--color-bg-dark);
+}
+    
+
+/* footer 
+ses une balise semantique footer qui contient des liens et une carte. le footer est en display flex en direction row pour que les liens soit à gauche et la carte à droite. la cartes est un div en display flex en direction column pour que le titre soit au dessus du bouton. le boutton a un padding et une couleur de font orange avce le lien un peut vert.
+*/
+
+
+footer {
+    padding: 50px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    gap: clamp(8px, 2vw, 24px);
+}
+footer a {
+    font-family: 'Montagu Slab', serif;
+    font-weight: 300;
+    font-size: var(--font-size-s);
+    margin: 0 4px;
+    color: var(--color-secondaire);
+    text-decoration: none;
+    justify-content: space-evenly;
+    letter-spacing: 1px;    
+    white-space: nowrap;
+}
+.footer_card {
+    background-color: var(--color-bg-light);
+    padding: 20px;
+    border-radius: var(--border-sm);
+    text-align: center;
+}
+footer h3 {
+    margin: 0 0 12px 0;
+    font-size: var(--font-size-m);
+    color: var(--color-text-secondary);
+    font-family: 'Montagu Slab', serif;
+    font-weight: 600;
+    white-space: nowrap;
+}
+footer button {
+    padding: 10px 20px;
+    background-color: var(--color-accent);
+    color: var(--color-text-tertiary);
+    border: none;
+    border-radius: var(--border-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Montagu Slab', serif;
+    font-weight: 500;
+    white-space: nowrap;
+}
+footer button:hover {
+    background-color: var(--color-bg-dark);
 }
